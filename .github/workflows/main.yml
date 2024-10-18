@@ -33,3 +33,11 @@ jobs:
     steps:
       - name: test
         run: echo "test workflow"
+      - name: deploy to server
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: 139.59.254.161
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: whoami
