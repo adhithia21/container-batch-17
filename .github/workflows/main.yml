@@ -10,3 +10,7 @@ jobs:
     steps:
       - name: check list file
         run: ls -la
+      - name: clone repository
+        uses: actions/checkout@v4
+      - name: check list file
+        run: ls -la
