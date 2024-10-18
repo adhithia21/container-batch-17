@@ -43,4 +43,5 @@ jobs:
           script: |
             docker login --username adhithia21 --password ${{ secrets.DOCKERHUB_TOKEN }}
             docker pull adhithia21/golangapp:${{ github.run_number }}
+            docker rm -f myapp
             docker run --detach --name myapp --publish 80:8000 adhithia21/golangapp:${{ github.run_number }}

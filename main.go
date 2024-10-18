@@ -21,6 +21,7 @@ func main() {
 			"language":    "go version go1.20.6",
 			"message":     "Server running on port 8000",
 			"description": "ini aplikasi golang latihan",
+			"version":     "1.0",
 		})
 	})
 	r.Run("0.0.0.0:8000")
