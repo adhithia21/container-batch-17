@@ -17,9 +17,10 @@ func main() {
 		time.Sleep(time.Duration(sleepDuration) * time.Second)
 
 		c.JSON(http.StatusOK, gin.H{
-			"code":     200,
-			"language": "go version go1.20.6",
-			"message":  "Server running on port 8000",
+			"code":        200,
+			"language":    "go version go1.20.6",
+			"message":     "Server running on port 8000",
+			"description": "ini aplikasi golang latihan",
 		})
 	})
 	r.Run("0.0.0.0:8000")
