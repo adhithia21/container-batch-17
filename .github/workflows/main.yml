@@ -40,4 +40,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
-          script: whoami
+          script: |
+            docker login --username adhithia21 --password ${{ secrets.DOCKERHUB_TOKEN }}
+            docker pull adhithia21/golangapp:${{ github.run_number }}
+            docker run --detach --name myapp --publish 80:8000 adhithia21/golangapp:${{ github.run_number }}
