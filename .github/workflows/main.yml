@@ -2,3 +2,11 @@ on:
   push:
     branches:
     - master
+
+jobs:
+  build-and-push-image:
+    name: build and push image to container registry
+    runs-on: ubuntu-22.04
+    steps:
+      - name: check list file
+        run: ls -la
