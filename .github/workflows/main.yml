@@ -24,3 +24,10 @@ jobs:
         with:
           push: true
           tags: adhithia21/golangapp:${{ github.run_number }}
+
+  deploy:
+    name: deploy container to server
+    runs-on: ubuntu-22.04
+    steps:
+      - name: test
+        run: echo "test workflow"
