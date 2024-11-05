@@ -25,23 +25,23 @@ jobs:
           push: true
           tags: adhithia21/golangapp:${{ github.run_number }}
 
-  deploy:
-    name: deploy container to server
-    runs-on: ubuntu-22.04
-    needs:
-    - build-and-push-image
-    steps:
-      - name: test
-        run: echo "test workflow"
-      - name: deploy to server
-        uses: appleboy/ssh-action@v1.1.0
-        with:
-          host: 152.42.176.84
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          port: 22
-          script: |
-            docker login --username adhithia21 --password ${{ secrets.DOCKERHUB_TOKEN }}
-            docker pull adhithia21/golangapp:${{ github.run_number }}
-            docker rm -f myapp
-            docker run --detach --name myapp --publish 80:8000 adhithia21/golangapp:${{ github.run_number }}
+  # deploy:
+  #   name: deploy container to server
+  #   runs-on: ubuntu-22.04
+  #   needs:
+  #   - build-and-push-image
+  #   steps:
+  #     - name: test
+  #       run: echo "test workflow"
+  #     - name: deploy to server
+  #       uses: appleboy/ssh-action@v1.1.0
+  #       with:
+  #         host: 152.42.176.84
+  #         username: ${{ secrets.SSH_USERNAME }}
+  #         key: ${{ secrets.SSH_KEY }}
+  #         port: 22
+  #         script: |
+  #           docker login --username adhithia21 --password ${{ secrets.DOCKERHUB_TOKEN }}
+  #           docker pull adhithia21/golangapp:${{ github.run_number }}
+  #           docker rm -f myapp
+  #           docker run --detach --name myapp --publish 80:8000 adhithia21/golangapp:${{ github.run_number }}
