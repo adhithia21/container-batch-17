@@ -20,8 +20,8 @@ func main() {
 			"code":        200,
 			"language":    "go version go1.20.6",
 			"message":     "Server running on port 8000",
-			"description": "test fluxcd image update automation",
-			"version":     "3.0",
+			"description": "fluxcd image update automation up version 4.5",
+			"version":     "4.5",
 		})
 	})
 	r.Run("0.0.0.0:8000")
